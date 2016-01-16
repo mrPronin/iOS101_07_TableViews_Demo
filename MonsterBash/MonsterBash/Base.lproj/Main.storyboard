@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,35 +16,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Astro.png" translatesAutoresizingMaskIntoConstraints="NO" id="xMz-C3-xpK">
-                                <rect key="frame" x="45" y="28" width="240" height="299"/>
-                            </imageView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wol-iB-RN2">
-                                <rect key="frame" x="20" y="348" width="280" height="29"/>
-                                <segments>
-                                    <segment title="Astro"/>
-                                    <segment title="Munchie"/>
-                                    <segment title="Fluffy"/>
-                                    <segment title="Squido"/>
-                                </segments>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vNX-NA-kPh">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonsterCell" id="AXo-Sc-ovR">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AXo-Sc-ovR" id="QPM-Bk-z0s">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <action selector="changedSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="p8c-gM-V2d"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MbG-Xg-ubY"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="eAl-Tt-rDC"/>
                                 </connections>
-                            </segmentedControl>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.25098040699958801" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vNX-NA-kPh" secondAttribute="bottom" id="NoC-jQ-gVW"/>
+                            <constraint firstAttribute="trailing" secondItem="vNX-NA-kPh" secondAttribute="trailing" id="Po7-lW-vXY"/>
+                            <constraint firstItem="vNX-NA-kPh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="enl-O2-2Ng"/>
+                            <constraint firstItem="vNX-NA-kPh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="hbr-m4-x3B"/>
+                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="xMz-C3-xpK" id="oxW-HF-xwy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="406"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Astro.png" width="300" height="420"/>
-    </resources>
 </document>

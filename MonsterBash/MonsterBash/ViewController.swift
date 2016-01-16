@@ -35,3 +35,20 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return monsters.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MonsterCell", forIndexPath: indexPath)
+        cell.textLabel?.text = monsters[indexPath.row]
+        cell.imageView?.image = UIImage(named: monsters[indexPath.row])
+        return cell
+    }
+}
